@@ -1,6 +1,5 @@
 package li.cil.oc.example.processor;
 
-import net.minecraft.nbt.NBTTagCompound;
 import li.cil.oc.api.machine.Architecture;
 import li.cil.oc.api.machine.Callback;
 import li.cil.oc.api.machine.ExecutionResult;
@@ -9,6 +8,7 @@ import li.cil.oc.api.machine.Machine;
 import li.cil.oc.api.machine.Signal;
 import li.cil.oc.api.network.Component;
 import li.cil.oc.api.network.Node;
+import net.minecraft.nbt.NBTTagCompound;
 
 /** This is the class you implement; Architecture is from the OC API. */
 @Architecture.Name("Pseudolang")

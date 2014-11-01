@@ -1,6 +1,5 @@
 package li.cil.oc.example.processor;
 
-
 /** The VM itself. This is just an example, it's not a "real" interface. */
 public class PseudoVM {
   Object[] run(Object[] args) throws Exception {

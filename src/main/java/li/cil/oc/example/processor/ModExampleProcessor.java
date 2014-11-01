@@ -23,8 +23,6 @@ public class ModExampleProcessor {
     public void preInit(FMLPreInitializationEvent e) {
         cpuPseudoProcessor = new ItemPseudoProcessor();
         GameRegistry.registerItem(cpuPseudoProcessor, "oc:cpu_pseudo_processor");
-        
-        li.cil.oc.api.Machine.add(PseudoArchitecture.class);
     }
 
     @Mod.EventHandler

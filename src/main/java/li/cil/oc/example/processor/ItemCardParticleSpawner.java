@@ -5,7 +5,7 @@ import net.minecraft.item.Item;
 
 public class ItemCardParticleSpawner extends Item {
     public ItemCardParticleSpawner() {
-        setUnlocalizedName("Particle Spawner Card");
+        setUnlocalizedName("Pseudolang CPU");
         setCreativeTab(CreativeTabs.tabAllSearch);
     }
 }

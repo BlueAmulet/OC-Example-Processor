@@ -17,10 +17,10 @@ import net.minecraft.client.Minecraft;
  * This mod demonstrates how to add item components, i.e. items that can be
  * placed in a computer and provide methods to it.
  */
-@Mod(modid = "OpenComputers|ExampleItem",
-        name = "OpenComputers Addon Example - Item",
+@Mod(modid = "OpenComputers|ExampleProcessor",
+        name = "OpenComputers Addon Example - Processor",
         version = "1.0.0",
-        dependencies = "required-after:OpenComputers@[1.2.0,)")
+        dependencies = "required-after:OpenComputers@[1.4.0,)")
 public class ModExampleItem {
     @Mod.Instance
     public static ModExampleItem instance;
@@ -33,12 +33,14 @@ public class ModExampleItem {
     public void preInit(FMLPreInitializationEvent e) {
         cardParticleSpawner = new ItemCardParticleSpawner();
         GameRegistry.registerItem(cardParticleSpawner, "oc:card_pfx_spawner");
+        
+        li.cil.oc.api.Machine.add(PseudoArchitecture.class);
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent e) {
         li.cil.oc.api.Driver.add(new DriverCardParticleSpawner());
-        channel = NetworkRegistry.INSTANCE.newEventDrivenChannel("OpenComputers|ExampleItem");
+        channel = NetworkRegistry.INSTANCE.newEventDrivenChannel("OpenComputers|ExampleProcessor");
         channel.register(this);
     }
 
@@ -53,7 +55,7 @@ public class ModExampleItem {
         data.writeFloat((float) vx);
         data.writeFloat((float) vy);
         data.writeFloat((float) vz);
-        channel.sendToAllAround(new FMLProxyPacket(data, "OpenComputers|ExampleItem"), new NetworkRegistry.TargetPoint(dimension, x, y, z, 64));
+        channel.sendToAllAround(new FMLProxyPacket(data, "OpenComputers|ExampleProcessor"), new NetworkRegistry.TargetPoint(dimension, x, y, z, 64));
     }
 
     @SubscribeEvent

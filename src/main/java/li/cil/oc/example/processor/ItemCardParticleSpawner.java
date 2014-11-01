@@ -1,4 +1,4 @@
-package li.cil.oc.example.item;
+package li.cil.oc.example.processor;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

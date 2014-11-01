@@ -1,8 +1,14 @@
-package li.cil.oc.example.item;
+package li.cil.oc.example.processor;
 
 import li.cil.oc.api.Network;
-import li.cil.oc.api.driver.*;
-import li.cil.oc.api.network.*;
+import li.cil.oc.api.driver.EnvironmentHost;
+import li.cil.oc.api.driver.item.Container;
+import li.cil.oc.api.driver.item.Slot;
+import li.cil.oc.api.machine.Arguments;
+import li.cil.oc.api.machine.Callback;
+import li.cil.oc.api.machine.Context;
+import li.cil.oc.api.network.ManagedEnvironment;
+import li.cil.oc.api.network.Visibility;
 import li.cil.oc.api.prefab.DriverItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -18,23 +24,23 @@ public class DriverCardParticleSpawner extends DriverItem {
     // computers' card slots.
 
     @Override
-    public Slot slot(ItemStack stack) {
+    public String slot(ItemStack stack) {
         return Slot.Card;
     }
 
     @Override
-    public ManagedEnvironment createEnvironment(ItemStack stack, Container container) {
+    public ManagedEnvironment createEnvironment(ItemStack stack, EnvironmentHost container) {
         return new Environment(container);
     }
 
     public class Environment extends li.cil.oc.api.prefab.ManagedEnvironment {
-        protected final Container container;
+        protected final EnvironmentHost container;
 
-        public Environment(Container container) {
+        public Environment(EnvironmentHost container) {
             this.container = container;
-            node = Network.newNode(this, Visibility.Neighbors).
+            this.setNode(Network.newNode(this, Visibility.Neighbors).
                     withComponent("particle").
-                    create();
+                    create());
         }
 
         // We allow spawning particle effects. The parameters are the particle

@@ -1,4 +1,4 @@
-package li.cil.oc.example.item;
+package li.cil.oc.example.processor;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;

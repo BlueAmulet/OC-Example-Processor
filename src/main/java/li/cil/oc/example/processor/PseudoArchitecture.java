@@ -8,6 +8,7 @@ import li.cil.oc.api.machine.Machine;
 import li.cil.oc.api.machine.Signal;
 import li.cil.oc.api.network.Component;
 import li.cil.oc.api.network.Node;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 /** This is the class you implement; Architecture is from the OC API. */
@@ -24,7 +25,7 @@ public class PseudoArchitecture implements Architecture {
  
   public boolean isInitialized() { return true; }
  
-  public void recomputeMemory() {}
+  public boolean recomputeMemory(Iterable<ItemStack> components) { return true; }
  
   public boolean initialize() {
     // Set up new VM here, and register all API callbacks you want to
